@@ -19,6 +19,10 @@ function getSeason(date) {
     if (!date || date === undefined || date === null) {
       return "Unable to determine the time of year!";
     }
+    let proto = Object.keys(date)
+    if(proto.length > 0){
+      throw new Error("Invalid date!");
+    }
 
     let month = date.getMonth();
 
@@ -41,6 +45,9 @@ function getSeason(date) {
         return "autumn (fall)";
     }
   } catch (err) {
+    throw new Error("Invalid date!");
+  }
+  if(date.PrototypeOf){
     throw new Error("Invalid date!");
   }
 }
