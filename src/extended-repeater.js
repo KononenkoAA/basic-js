@@ -41,8 +41,8 @@ function repeater(str, options) {
     additionSeparator = options.additionSeparator;
 
   if (repeatTimes > 1 && additionRepeatTimes > 1) {
-    strResSub = (str + (addition + additionSeparator).repeat(additionRepeatTimes) + separator).repeat(repeatTimes)
-    strRes = strResSub.substr(0, strResSub.length - separator.length - additionSeparator.length)
+    strRes = (str + (addition + additionSeparator).repeat(additionRepeatTimes-1) + addition  + separator).repeat(repeatTimes-1) + (str + (addition + additionSeparator).repeat(additionRepeatTimes-1) + addition  )
+//     strRes = strResSub.substr(0, strResSub.length - separator.length - additionSeparator.length)
     
 
   } else if (repeatTimes == 1 && additionRepeatTimes > 1) {
@@ -58,7 +58,7 @@ function repeater(str, options) {
 
   }
 
-  return strRes
+  return strRes;
 }
 
 module.exports = {
